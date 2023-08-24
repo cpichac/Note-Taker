@@ -1,4 +1,4 @@
-const fb = require('express').Router();
+const notes = require('express').Router();
 const { readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
@@ -8,7 +8,7 @@ fb.get('/', (req, res) =>
 );
 
 // POST Route for submitting feedback
-fb.post('/', (req, res) => {
+notes.post('/', (req, res) => {
   // Destructuring assignment for the items in req.body
   const { email, feedbackType, feedback } = req.body;
 
@@ -35,4 +35,4 @@ fb.post('/', (req, res) => {
   }
 });
 
-module.exports = fb;
+module.exports = notes;

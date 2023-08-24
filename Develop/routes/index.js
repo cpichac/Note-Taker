@@ -1,18 +1,11 @@
 const express = require('express');
 
-// Import custom middleware
-const { clog } = require('../middleware/clog');
+// Import our modular routers for /notes
 
-// Import our modular routers for /tips and /feedback
-const tipsRouter = require('./tips');
-const feedbackRouter = require('./feedback');
+const notes = require('./notes');
 
 const app = express();
 
-app.use('/tips', tipsRouter);
-app.use('/feedback', feedbackRouter);
-
-// Initialize custom middleware
-app.use(clog);
+app.use('/notes', notes);
 
 module.exports = app;
