@@ -26,24 +26,37 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('/api/notes', {
+  fetch('/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-    },
+    }
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((error) => {
+      console.error('Error:', error);
+    })
   });
 
 const saveNote = (note) =>
-  fetch('/api/notes', {
+  fetch('/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(note),
+    body: JSON.stringify(note)
+    .then((response) => response.json())
+    .then((data) => {
+      alert(data);
+      createCard(tip);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    })
   });
 
 const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
+  fetch(`/notes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
