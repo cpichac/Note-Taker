@@ -6,6 +6,6 @@ const notes = require('./notes');
 
 const app = express();
 
-app.use('/notes', notes);
+app.use('/apit/notes', notes);
 
 module.exports = app;
