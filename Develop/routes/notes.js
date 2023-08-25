@@ -28,20 +28,20 @@ notes.post('/', (req, res) => {
             res.json(newNote);
         });
     });
-    // const { title, text } = req.body;
+    const { title, text } = req.body;
 
-    // if (req.body) {
-    //   const newNote = {
-    //     title,
-    //     text
-    //   };
+    if (req.body) {
+      const newNote = {
+        title,
+        text
+      };
   
-    //   readAndAppend(newNote, './db/db.json');
+      readAndAppend(newNote, './db/db.json');
 
-    //   res.json(`Note added successfully`);
-    // } else {
-    //   res.error('Error in adding note');
-    // }
+      res.json(`Note added successfully`);
+    } else {
+      res.error('Error in adding note');
+    }
 });
 
 module.exports = notes;
